@@ -205,8 +205,8 @@ class QuantumCircuit:
         total = new_state.sum()
         print(new_state)
         probs = new_state/total
-        print(probs.T[0])
-        return probs.T[0],new_state,bits
+        print(probs)
+        return probs,new_state
                                
         
     

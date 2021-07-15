@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     readme = fh.read()
 
 setup(name='qfunction',
-    version='1.0.151',
+    version='1.0.1445',
     url='https://github.com/gpftc/qfunction',
     license='MIT License',
     author='Reinan Br',

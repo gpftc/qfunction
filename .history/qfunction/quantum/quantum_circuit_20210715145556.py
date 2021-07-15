@@ -191,7 +191,6 @@ class QuantumCircuit:
                 line = line + str_cir_n
                 new_circuit.append(line)
             i+=1
-        self.circuit_painel = new_circuit
         qubits = self.q_qubits
         new_qubits = 0
         i=0
@@ -201,12 +200,10 @@ class QuantumCircuit:
                 [0,0,0,1],
                 [0,0,1,0]]
         cnot = np.array(cnot)
-        new_state = np.dot(cnot,result_vector)
-        total = new_state.sum()
-        print(new_state)
+        new_state = np.kron(result_vector,cnot)
+        total = sum(new_state)
         probs = new_state/total
-        print(probs.T[0])
-        return probs.T[0],new_state,bits
+        return probs,new_state
                                
         
     

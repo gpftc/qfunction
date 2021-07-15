@@ -6,7 +6,6 @@ from qfunction import q_sin,q_exp,q_cos,radian,limit
 import numpy as np
 from numpy import sqrt,array
 from math import atan
-import numpy as np
 ############ quantum equations #############
 def q_rho(u,q=1,cpx=False,israd=True):
 	u = radian(u) if(not israd) else u
@@ -24,14 +23,9 @@ def q_psi(theta,gamma,q=1,israd=True):
     theta = radian(theta) if(not israd) else theta
     theta = 1j*theta/2
     gamma = gamma/2
-    #print(gamma)
-    #gamma = np.array(gamma)
-    if(type(gamma)==np.ndarray):
-        gamma[np.abs(gamma) > np.pi] = np.nan
-        theta[np.abs(theta) > 2*np.pi] = np.nan
-    else:
-        gamma = np.nan if np.abs(gamma)>np.pi else gamma
-        theta = np.nan if np.abs(theta)>2*np.pi else theta
+    print(gamma)
+    gamma[gamma <= np.pi] = np.nan
+    theta[theta <= 2*np.pi] = np.nan
     coluna0 = [q_exp(-theta,q).real*q_cos(gamma,q).real]
     coluna1 = [q_exp(theta,q).real*q_sin(gamma,q).real]
     return array([coluna0,coluna1])
@@ -172,43 +166,7 @@ class QuantumCircuit:
         self.q_qubits = new_q_qubits
         self.qprobs = self.get_prob_from_qbits(self.q_qubits)
 
-    def cnot(self,bits):
-        bit_alloc0,bit_alloc1 = bits
-        str_cir_x = '---X---'
-        str_cir_o = '---O---'
-        str_cir_n = '-------'
-        circuit_painel = self.circuit_painel
-        i = 0
-        new_circuit = []
-        for line in circuit_painel:
-            if i == bit_alloc0:
-                line = line + str_cir_x
-                new_circuit.append(line)
-            elif i==bit_alloc1:
-                line = line+str_cir_o
-                new_circuit.append(line)
-            else:
-                line = line + str_cir_n
-                new_circuit.append(line)
-            i+=1
-        self.circuit_painel = new_circuit
-        qubits = self.q_qubits
-        new_qubits = 0
-        i=0
-        result_vector = np.kron(qubits[bit_alloc0],qubits[bit_alloc1])
-        cnot = [[1,0,0,0],
-                [0,1,0,0],
-                [0,0,0,1],
-                [0,0,1,0]]
-        cnot = np.array(cnot)
-        new_state = np.dot(cnot,result_vector)
-        total = new_state.sum()
-        print(new_state)
-        probs = new_state/total
-        print(probs.T[0])
-        return probs.T[0],new_state,bits
-                               
-        
+    
     
     def X(self,*n_bits):
         str_cir = '--[X]--'

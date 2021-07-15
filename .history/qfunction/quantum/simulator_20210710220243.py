@@ -1,4 +1,3 @@
-from qfunction.base.trigonometry import q_cos
 from qfunction.quantum import QuantumCircuit as Qc
 import matplotlib as mpl
 from pylab import *
@@ -7,28 +6,6 @@ from matplotlib import cm
 import imageio
 from tqdm import tqdm
 
-def state_bits(qc:Qc):
-    bits = []
-    for bit in qc.q_qubits:
-        bits.append((bit[0]*basis(2,0)+bit[1]*basis(2,1)).unit())
-    return bits
-
-def state_bit(bit):
-    return ((bit[0]*basis(2,0)+bit[1]*basis(2,1))).unit()
-
-def plot_state(state):
-    length = 1
-    b = Bloch()
-    b.vector_color = ['r']
-    b.view = [-40,30]
-    nrm = mpl.colors.Normalize(0,length)
-    colors = cm.cool(nrm(range(length)))
-    b.point_color = list(colors) # options: 'r', 'g', 'b' etc.
-    b.point_marker = ['o']
-    b.point_size = [30]
-    b.add_states(state)
-    return b
-    
 def animate_bloch(states, duration=0.1, save_all=False):
 
     b = Bloch()

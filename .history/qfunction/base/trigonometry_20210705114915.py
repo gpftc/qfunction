@@ -6,7 +6,7 @@ from math import atan
 def q_sin(u,q,cpx=False,israd=True):
     u = radian(u) if( not israd) else u
     b = 1j
-    u=u*1j
+    u*=1j
     if cpx:
         return ((q_exp(u,q)-q_exp(-u,q)))/(2*b)
     else:

@@ -10,11 +10,11 @@ from tqdm import tqdm
 def state_bits(qc:Qc):
     bits = []
     for bit in qc.q_qubits:
-        bits.append((bit[0]*basis(2,0)+bit[1]*basis(2,1)).unit())
+        bits.append((bit[0]*basis(2,0),bit[1]*basis(2,1)).unit())
     return bits
 
 def state_bit(bit):
-    return ((bit[0]*basis(2,0)+bit[1]*basis(2,1))).unit()
+    return ((bit[0]*basis(2,0),bit[1]*basis(2,1))).unit()
 
 def plot_state(state):
     length = 1

@@ -2,23 +2,6 @@ from matplotlib import pyplot as plt
 import numpy as np
 from qfunction.quantum import QuantumCircuit as Qc
 
-def plot_cnot_prob(cnot):
-    probs,states,bits = cnot
-    x = [1,2,3,4]
-    fig,ax = plt.subplots()
-    rects =ax.bar(x,probs)
-    for rect in rects:
-                height = rect.get_height()
-                plt.text(rect.get_x() + rect.get_width()/2., 1.05*height,
-                        f'{height:.3f}',
-                        ha='center', va='bottom')
-    
-    ax.set_xticklabels(['','','|00>','','|01>','','|10>','','|11>',''])
-    ax.set_ylim(0.,1.2)
-    ax.set_title(f'prob(|q{bits[0]}q{bits[1]}>)')
-    plt.show()
-    
-
 def plot_probabilities(qc:Qc):
     list_probs = qc.qprobs
     i = 0

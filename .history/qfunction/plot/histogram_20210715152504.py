@@ -15,7 +15,7 @@ def plot_cnot_prob(cnot):
     
     ax.set_xticklabels(['','','|00>','','|01>','','|10>','','|11>',''])
     ax.set_ylim(0.,1.2)
-    ax.set_title(f'prob(|q{bits[0]}q{bits[1]}>)')
+    ax.set-tilte(f'prob9|q[{bits[0]}]q[{bits[1]}>')
     plt.show()
     
 

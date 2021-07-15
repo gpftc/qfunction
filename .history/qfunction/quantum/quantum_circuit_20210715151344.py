@@ -201,12 +201,11 @@ class QuantumCircuit:
                 [0,0,0,1],
                 [0,0,1,0]]
         cnot = np.array(cnot)
-        new_state = np.dot(cnot,result_vector)
+        new_state = np.dot(result_vector,cnot)
         total = new_state.sum()
         print(new_state)
         probs = new_state/total
-        print(probs.T[0])
-        return probs.T[0],new_state,bits
+        return probs,new_state
                                
         
     

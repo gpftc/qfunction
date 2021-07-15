@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     readme = fh.read()
 
 setup(name='qfunction',
-    version='1.0.151',
+    version='1.0.141',
     url='https://github.com/gpftc/qfunction',
     license='MIT License',
     author='Reinan Br',
@@ -15,4 +15,4 @@ setup(name='qfunction',
     keywords='qfunction non-extensive mechanical statistical data science',
     description=u'Library for data mining about covid-19 in brazilian cities',
     packages=find_packages(),
-    install_requires=['numpy','qutip','tqdm','matplotlib','pillow','mechanicalsoup','psutil','requests','pandas'],)
+    install_requires=['numpy','tqdm','matplotlib','pillow','mechanicalsoup','psutil','requests','pandas'],)
