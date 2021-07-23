@@ -10,6 +10,9 @@ tqdm = "*"
 requests = "*"
 bs4 = "*"
 matplotlib = "*"
+ipython = "*"
+imageio = "*"
+twine = "*"
 
 [dev-packages]
 

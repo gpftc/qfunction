@@ -12,9 +12,20 @@ def Sx(t,q=1):
 def Sy(t,q=1):
     return (sin(q_omega(t,q))+cos(q_omega(t,q)))
 
-def probabilities_q(theta,gamma,q):
+def prob_psi_q(theta,gamma,q):
     state = q_psi(theta=gamma,gamma=theta,q=q)
     total = abs(state[0])+abs(state[1])
     probs = [np.power(state[0],2),np.power(state[1],2)]
     return (probs[0][0],probs[1][0])
 
+from math import log2
+
+def S(list_prob:list)-> float:
+    res = 0
+    for prob in list_prob:
+        res+=-prob*log2(prob)
+    return res
+
+def S_q(theta,gamma,q):
+    probs = prob_psi_q(theta,gamma,q)
+    return S(probs[0]),S(probs[1])
