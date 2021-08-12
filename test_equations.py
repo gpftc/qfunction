@@ -1,5 +1,5 @@
 from qfunction.quantum.equations import S,S_q
-from qfunction.base import q_cos,q_sin
+from qfunction.fundamentals import q_cos,q_sin
 from numpy import array,linspace,pi
 
 t = array([1,2,34,56,34,23])

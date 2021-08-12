@@ -1,4 +1,4 @@
-from qfunction.base.base import *
+from qfunction.fundamentals.fundamentals import *
 from numpy import sin, cos
 import numpy as np
 from math import atan

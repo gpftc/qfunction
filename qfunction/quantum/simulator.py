@@ -1,4 +1,4 @@
-from qfunction.base.trigonometry import q_cos
+from qfunction.fundamentals.trigonometry import q_cos
 from qfunction.quantum import QuantumCircuit as Qc
 import matplotlib as mpl
 from pylab import *

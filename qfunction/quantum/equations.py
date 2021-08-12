@@ -29,3 +29,7 @@ def S(list_prob:list)-> float:
 def S_q(theta,gamma,q):
     probs = prob_psi_q(theta,gamma,q)
     return S(probs[0]),S(probs[1])
+
+
+
+### fourier deformed

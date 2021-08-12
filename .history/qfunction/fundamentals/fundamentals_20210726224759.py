@@ -1,6 +1,6 @@
 from numpy import power,exp,sqrt,pi,array
 from sys import float_info as float_h
-
+from qfunction.fundamentals.canonic import prod
 zero = 44e-15
 inf = 1/zero
 
@@ -19,4 +19,13 @@ def q_exp(u,q=1):
 def radian(angle):
 	return angle*(2*pi)/360
 
+#### q-sum ####
+def q_sum(*args,q=1)->float:
+    sm_r = sum(args)
+    pr_r = prod(*args)
+    return sm_r + (1-q)*pr_r
 
+def q_ln(u,q):
+    den_ = lambda q_: 1-q_
+    den = limit(den_,q)
+    return (power(u,1-q)-1)/den
